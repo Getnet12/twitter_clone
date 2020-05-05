@@ -15,25 +15,62 @@ class TweetCellTableViewCell: UITableViewCell {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     
-    @IBOutlet weak var retweetButton: UIView!
-    @IBOutlet weak var favButton: UIView!
+    @IBOutlet weak var retweetButton: UIButton!
+    @IBOutlet weak var favButton: UIButton!
+    var favorited:Bool = false
+     var tweetId: Int = -1
+    
     @IBAction func favoriteTweet(_ sender: Any) {
+        let toBeFavorited = !favorited
+               if(toBeFavorited){
+                   TwitterAPICaller.client?.favoriteTweet(tweetId: tweetId, success: {
+                       self.setFavorited(true)
+                   }, failure: { (Error) in
+                       print("Favorite did not succeed\(Error)")
+                   })
+               }
+               else {
+
+                   TwitterAPICaller.client?.unfavoriteTweet(tweetId: tweetId, success: {
+                       self.setFavorited(false)
+                   }, failure: { (Error) in
+                       print("unfavorited did not succeed: \(Error)")
+                   })
+               }
     }
     @IBAction func retweet(_ sender: Any) {
+        
+        TwitterAPICaller.client?.retweet(tweetId: tweetId, success: {
+                   self.setRetweeted(true)
+               }, failure: { (Error) in
+                   print("Error is retweeting: \(Error)")
+               })
     }
-    
-    var favorited:Bool = false
+    func setRetweeted(_ isRetweeted: Bool){
+           
+           if(isRetweeted) {
+               retweetButton.setImage(UIImage(named: "retweet-icon-green"), for: UIControl.State.normal)
+               retweetButton.isEnabled = false
+           }
+               
+           else{
+
+               retweetButton.setImage(UIImage(named: "retweet-icon"), for: UIControl.State.normal)
+               retweetButton.isEnabled = true
+           }
+       }
     
     func setFavorited (_ isFavorited :Bool){
         
         favorited = isFavorited
-        if (favorited){
-            
+            if (favorited){
+                favButton.setImage(UIImage(named: "favor-icon-red"), for: UIControl.State.normal)
+
+            }
+            else{
+                favButton.setImage(UIImage(named: "favor-icon"), for: UIControl.State.normal)
+            }
         }
-        
-        
-        
-    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
