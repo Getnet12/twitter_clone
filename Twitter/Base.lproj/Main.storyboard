@@ -144,7 +144,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Tweet" style="plain" id="0IJ-oF-264">
                             <color key="tintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             <connections>
-                                <segue destination="6T6-dJ-sbm" kind="presentation" id="a0b-Yx-Zwz"/>
+                                <segue destination="6T6-dJ-sbm" kind="presentation" modalPresentationStyle="fullScreen" id="a0b-Yx-Zwz"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -158,11 +158,11 @@
             <objects>
                 <viewController id="jt0-IX-Qvf" customClass="TweetViewController" customModule="Twitter_Clone" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UTQ-YX-dO5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VTG-y9-zO3">
-                                <rect key="frame" x="0.0" y="56" width="375" height="128"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="128"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="0AT-Yp-gIb"/>
@@ -229,7 +229,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6T6-dJ-sbm" userLabel="Tweet naviagation controller" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZHT-VS-WlJ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.2075028257" green="0.48993114970000001" blue="0.65084601679999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
