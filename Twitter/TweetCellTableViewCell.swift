@@ -9,6 +9,7 @@
 import UIKit
 import BDBOAuth1Manager
 import AlamofireImage
+
 class TweetCellTableViewCell: UITableViewCell {
     @IBOutlet weak var tweetContent: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
